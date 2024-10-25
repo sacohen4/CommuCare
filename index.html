@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommuCare - Personalized Care for Your Loved Ones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px 50px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #006b5b;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        header nav ul li {
+            display: inline;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        header .contact-info {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        header .contact-info a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 50px;
+            background-color: #eaf4f3;
+            height: 500px;
+        }
+
+        .hero .hero-text {
+            max-width: 50%;
+        }
+
+        .hero .hero-text h1 {
+            font-size: 3rem;
+            color: #006b5b;
+        }
+
+        .hero .hero-text p {
+            font-size: 1.4rem;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        .hero .hero-text a {
+            background-color: #00897b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .hero .hero-text a:hover {
+            background-color: #006b5b;
+        }
+
+        .hero img {
+            max-width: 45%;
+            border-radius: 10px;
+        }
+
+        /* Find Care Section */
+        .find-care {
+            background-color: white;
+            padding: 30px 100px;
+            margin-top: -50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .find-care h2 {
+            font-size: 1.8rem;
+            color: #006b5b;
+            margin-right: 50px;
+        }
+
+        .find-care .form {
+            display: flex;
+            gap: 15px;
+        }
+
+        .find-care .form select,
+        .find-care .form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 200px;
+        }
+
+        .find-care .form button {
+            background-color: #00897b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .find-care .form button:hover {
+            background-color: #006b5b;
+        }
+
+        /* About Us Section */
+        .about-us {
+            padding: 60px 100px;
+            background-color: #f9fafb;
+        }
+
+        .about-us h2 {
+            font-size: 2rem;
+            color: #006b5b;
+            margin-bottom: 20px;
+        }
+
+        .about-us p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Key Benefits Section */
+        .benefits {
+            padding: 60px 100px;
+            background-color: white;
+        }
+
+        .benefits h2 {
+            font-size: 2rem;
+            color: #006b5b;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .benefits .cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background-color: #eaf4f3;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.6rem;
+            color: #006b5b;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 100px;
+            background-color: #f9fafb;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            color: #006b5b;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .testimonial h4 {
+            font-size: 1.2rem;
+            color: #006b5b;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 60px 100px;
+            background-color: #f9fafb;
+            text-align: center;
+        }
+
+        .reviews h2 {
+            font-size: 2rem;
+            color: #006b5b;
+            margin-bottom: 40px;
+        }
+
+        .review-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .review-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            text-align: left;
+        }
+
+        .review-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .stars {
+            color: #ff6347;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .review-card p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .author {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Caregiver Section */
+        .caregiver {
+            background-color: #006b5b;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 50px;
+        }
+
+        .caregiver h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .caregiver p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .caregiver a {
+            background-color: white;
+            color: #006b5b;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .caregiver a:hover {
+            background-color: #004d47;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">CommuCare</div>
+        <nav>
+            <ul>
+                <li><a href="#">Find a Caregiver</a></li>
+                <li><a href="#">Become a Care Provider</a></li>
+                <li><a href="#">Solutions</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">
+            <span>1-800-123-4567</span> | <a href="#">Log in</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>CommuCare</h1>
+            <p>Providing personalized, community-focused care for your loved ones with dedicated caregivers who truly care.</p>
+            <a href="#">Learn More</a>
+        </div>
+        <img src="https://via.placeholder.com/600x400" alt="Caregivers">
+    </section>
+
+    <!-- Find a Caregiver Section -->
+    <section class="find-care">
+        <h2>Find a Caregiver</h2>
+        <div class="form">
+            <select>
+                <option>Who needs care?</option>
+                <option>Adult</option>
+                <option>Senior</option>
+                <option>Child</option>
+            </select>
+            <input type="text" placeholder="ZIP code">
+            <button>Get Started</button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <h2>About Us</h2>
+        <p>At CommuCare, we believe in personalized care that fosters independence and well-being in small, community-oriented homes. Our dedicated teams of caregivers work closely with each resident to develop individualized care plans, ensuring comfort, dignity, and respect.</p>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section class="benefits">
+        <h2>Key Benefits of CommuCare</h2>
+        <div class="cards">
+            <div class="benefit-card">
+                <h3>Personalized Care Plans</h3>
+                <p>Every resident receives a care plan tailored to their unique needs.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Community-Oriented Homes</h3>
+                <p>Small, intimate homes where residents form strong bonds with each other and caregivers.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Expert Care Teams</h3>
+                <p>Our professional caregivers are empowered to make decisions that enhance resident satisfaction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <h2>What Our Families Say</h2>
+        <div class="review-cards">
+            <div class="review-card">
+                <h3>Natalie</h3>
+                <p class="location">Boston, MA</p>
+                <div class="stars">★★★★★</div>
+                <p>Words can't express our gratitude for Natalie! She has a special gift and understanding of my aging parent's daily needs. My aging parent has dementia, and Natalie's patience and understanding have been such a blessing. She always goes above and beyond, taking the time to truly connect, making my parent feel safe and cared for. We trust Natalie with everything, and she’s become a part of our family. We are so grateful for her dedication and compassion.</p>
+                <p class="author">– Nichole P.</p>
+            </div>
+            <div class="review-card">
+                <h3>Peggy</h3>
+                <p class="location">San Jose, CA</p>
+                <div class="stars">★★★★★</div>
+                <p>Peggy was very kind and put me instantly at ease prior to my surgery. Very trustworthy, completely dependable, and great communication before the day I booked her. She took care of my needs while I was recovering, ensuring everything was in place, and I didn’t have to worry about anything. Her professionalism and warmth have made a significant impact on my recovery process. I couldn't have done it without her help.</p>
+                <p class="author">– Rohit P.</p>
+            </div>
+            <div class="review-card">
+                <h3>Rebecca</h3>
+                <p class="location">Chicago, IL</p>
+                <div class="stars">★★★★★</div>
+                <p>Rebecca is one of the most incredible employees we have ever had! She is always early, extremely thorough, and so dependable. She cared for my mom with dementia and mobility issues. We trust her so much, she became like family. Her attention to detail and compassion really shine through in everything she does. She brings peace of mind to our entire family, knowing our mom is in the best hands.</p>
+                <p class="author">– Alicia S.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Caregiver Section -->
+    <section class="caregiver">
+        <h2>Are you a caregiver looking for work?</h2>
+        <p>Join our dedicated team of caregivers and make a real difference in the lives of seniors.</p>
+        <a href="#">Click here to learn more</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CommuCare. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+</body>
+
+</html>
